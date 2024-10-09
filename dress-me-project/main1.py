@@ -1,6 +1,6 @@
 #------------import statements
 import sqlite3
-
+import random
 
 
 #initialize database:
@@ -10,13 +10,39 @@ cur = conn.cursor()
 
 #------------function definitions
 def generate_outfits():
-    pass
+    top1 = generate_rand("TOP")
+    bottom1 = generate_rand("BOTTOM")
+    print(top1)
+    print("and")
+    print(bottom1)
+    return top1, bottom1
+
+def generate_rand(type):
+    cur.execute('''
+    SELECT Description
+    FROM Wardrobe
+    WHERE Clean = 1 AND Type = ? 
+                ''', (type, ))
+
+    tops = cur.fetchall()
+    return (random.choice(tops)[0])
+
 
 def pick_new():
     pass
 
-def wear_it():
-    pass
+def wear(Description):
+    cur.execute('''
+    UPDATE Wardrobe
+    SET Clean = 0
+    WHERE Description = ?
+                ''', (Description, ))
+    conn.commit()
+
+def wear_combo(top1, bottom1):
+    wear(top1)
+    wear(bottom1)
+    print("worn")
 
 def do_laundry():
     pass
@@ -80,4 +106,10 @@ def edit_tags():
 def retake_photo():
     pass
 
-add_item()
+# add_item()
+# add_item()
+
+# add_item()
+
+top1, bottom1 = generate_outfits()
+wear_combo(top1, bottom1)
