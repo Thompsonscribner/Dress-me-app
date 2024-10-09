@@ -1,0 +1,20 @@
+okay, here's the plan. 
+
+For the datbase, I want to have it set up like this:  
+
+id/ description (replace with image eventually)/ clean/ type (top or bottom) (maybe eventually add shoes or hats)/fall?/Winter?/summer?/spring?/dress?/onepiece?
+
+Here are the functionalities I want: 
+1. generate_outfits
+2. pick_new
+3. wear_it
+4. do laundry
+5. wash_1
+6. wear_1
+7. declutter_1
+8. suggest_5
+9. declutter_all
+10. add_item
+11. add_tags
+12. edit_tags
+13. retake_photo
